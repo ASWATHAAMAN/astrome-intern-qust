@@ -19,20 +19,171 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+:root {
+  --clr-oxford-blue: hsla(212, 100%, 17%, 1);
+  --clr-oxford-blue-3: hsla(219, 100%, 10%, 1);
+  --clr-delft-blue: hsla(220, 29%, 28%, 1);
+  --clr-slate-gray: hsla(222, 11%, 54%, 1);
+  --clr-cherry-blossom-pink: hsla(345, 100%, 85%, 1);
+  --clr-bakermiller-pink: hsla(345, 100%, 78%, 1);
+  --clr-russian-violet: hsla(255, 45%, 18%, 1);
+  --clr-lilac: hsla(292, 28%, 68%, 1);
+  --clr-cornsilk: hsla(52, 94%, 94%, 1);
+  --clr-earth-yellow: hsla(32, 65%, 62%, 1);
+  --clr-tigers-eye: hsla(28, 67%, 44%, 1);
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.go {
+  color: green;
+}
+.stop {
+  color: red;
+}
+li {
+  border: 1px solid blue;
+  padding: 4rem;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+.box-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.btn-text{
+  padding: 0.25rem 1.5rem ;
+  margin-right: 1rem;
+}
+.back-clr-one{
+  background-color: aqua;
+  padding-top: 10rem;
+}
+.back-clr-two{
+  background-color: antiquewhite;
+  padding-top: 2rem;
+
+}
+.back-clr-three{
+  background-color: aquamarine;
+  padding-top: 7rem;
+
+}
+.back-clr-four{
+  background-color: cadetblue;
+  padding-top: 5rem;
+
+}
+.back-clr-five{
+  background-color: brown;
+  padding-top: 2rem;
+
+}
+.reset{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: white;
+height: 20vh;
+}
+</style>
   </head>
   <body>
     <ul id="my_box" class="box-btn">
-      <li class="back-clr-one"></li>
-      <li class="back-clr-two"></li>
-      <li class="back-clr-three"></li>
-      <li class="back-clr-four"></li>
-      <li class="back-clr-five"></li>
+      <li id="box1"></li>
+      <li id="box2"></li>
+      <li id="box3"></li>
+      <li id="box4"></li>
+      <li id="box5"></li>
     </ul>
     <div class="box-btn">
       <button id="start" class="btn-text">Start</button>
       <button id="stop" class="btn-text">Stop</button>
+      <button id="reset" class="btn-text">Reset</button>
+
     </div>
 
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script.js">`use strict`;
+let nInterId;
+
+function changeHeight() {
+  if (!nInterId) {
+    nInterId = setInterval(flashText, 1000);
+  }
+}
+
+function flashText() {
+  const box1 = document.getElementById("box1");
+  box1.className =
+    box1.className === "back-clr-one" ? "back-clr-five" : "back-clr-one";
+  const box2 = document.getElementById("box2");
+
+  box2.className =
+    box2.className === "back-clr-two" ? "back-clr-four" : "back-clr-two";
+  const box3 = document.getElementById("box3");
+
+  box3.className =
+    box3.className === "back-clr-three" ? "back-clr-one" : "back-clr-three";
+  const box4 = document.getElementById("box4");
+
+  box4.className =
+    box4.className === "back-clr-four" ? "back-clr-two" : "back-clr-four";
+  const box5 = document.getElementById("box5");
+
+  box5.className =
+    box5.className === "back-clr-five" ? "back-clr-one" : "back-clr-five";
+}
+
+function stopTextColor() {
+  clearInterval(nInterId);
+  nInterId = null;
+}
+function resetColor() {
+ const box1= document.getElementById("box1");
+ box1.className= "reset"
+  const box2 = document.getElementById("box2");
+  box2.className = "reset";
+   const box3 = document.getElementById("box3");
+   box3.className = "reset";
+    const box4 = document.getElementById("box4");
+    box4.className = "reset";
+     const box5 = document.getElementById("box5");
+     box5.className = "reset";
+     clearInterval(nInterId)
+     nInterId = null;
+}
+
+document.getElementById("start").addEventListener("click", changeHeight);
+document.getElementById("stop").addEventListener("click", stopTextColor);
+document.getElementById("reset").addEventListener("click", resetColor);
+</script>
   </body>
 </html>

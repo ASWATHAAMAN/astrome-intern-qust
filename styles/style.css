@@ -56,6 +56,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 .btn-text{
   padding: 0.25rem 1.5rem ;
@@ -63,25 +64,32 @@ ul {
 }
 .back-clr-one{
   background-color: aqua;
-  padding-top: 1rem;
+  padding-top: 10rem;
 }
 .back-clr-two{
   background-color: antiquewhite;
-  padding-top: 3rem;
+  padding-top: 2rem;
 
 }
 .back-clr-three{
   background-color: aquamarine;
-  padding-top: 0.5rem;
+  padding-top: 7rem;
 
 }
 .back-clr-four{
   background-color: cadetblue;
-  padding-top: 2.4rem;
+  padding-top: 5rem;
 
 }
 .back-clr-five{
   background-color: brown;
-  padding-top: 1.4rem;
+  padding-top: 2rem;
 
+}
+.reset{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: white;
+height: 20vh;
 }
